@@ -5,7 +5,7 @@ import Shop from "./components/Shop.jsx";
 import { DUMMY_PRODUCTS } from "./dummy-products.js";
 import Product from "../src/components/Product.jsx";
 import { CartContext } from "./store/shopping-cart-context.jsx";
-
+import { Test1context } from "./store/test1-context.jsx";
 function App() {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
@@ -66,23 +66,24 @@ function App() {
       };
     });
   }
-
+const tst1 = 'This is Context API '
   return (
     <>
-   <Test.Provider><p>This is a test</p></Test.Provider> 
-    <CartContext.Provider value={{items: []}}>
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
-      />
-      <Shop>
-        {DUMMY_PRODUCTS.map((product) => (
-          <li key={product.id}>
-            <Product {...product} onAddToCart={handleAddItemToCart} />
-          </li>
-        ))}
-      </Shop>
+    <Test1context.Provider value={tst1}>
+      <CartContext.Provider value={{ items: [] }}>
+        <Header
+          cart={shoppingCart}
+          onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
+        />
+        <Shop>
+          {DUMMY_PRODUCTS.map((product) => (
+            <li key={product.id}>
+              <Product {...product} onAddToCart={handleAddItemToCart} />
+            </li>
+          ))}
+        </Shop>
       </CartContext.Provider>
+      </Test1context.Provider>
     </>
   );
 }

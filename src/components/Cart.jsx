@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { CartContext } from "../store/shopping-cart-context";
+import { Test1context } from "../store/test1-context";
 
 
 
@@ -7,8 +8,9 @@ import { CartContext } from "../store/shopping-cart-context";
 export default function Cart({ onUpdateItemQuantity }) {
 
 const cartCtx = useContext(CartContext);
+const tst1value = useContext(Test1context)
 
-
+console.log(tst1value + 'and it worked')
   const totalPrice = cartCtx.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
