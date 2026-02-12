@@ -67,10 +67,14 @@ function App() {
     });
   }
 const tst1 = 'This is Context API '
+const ctxValue = {
+  items: shoppingCart.items,
+  addItemToCart: handleAddItemToCart,
+}
   return (
     <>
     <Test1context.Provider value={tst1}>
-      <CartContext.Provider value={{ items: [] }}>
+      <CartContext.Provider value={ctxValue}>
         <Header
           cart={shoppingCart}
           onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
@@ -78,7 +82,7 @@ const tst1 = 'This is Context API '
         <Shop>
           {DUMMY_PRODUCTS.map((product) => (
             <li key={product.id}>
-              <Product {...product} onAddToCart={handleAddItemToCart} />
+              <Product {...product}  />
             </li>
           ))}
         </Shop>

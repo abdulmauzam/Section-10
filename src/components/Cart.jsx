@@ -8,9 +8,9 @@ import { Test1context } from "../store/test1-context";
 export default function Cart({ onUpdateItemQuantity }) {
 
 const cartCtx = useContext(CartContext);
-const tst1value = useContext(Test1context)
+const test1 = useContext(Test1context)
 
-console.log(tst1value + 'and it worked')
+console.log(test1)
   const totalPrice = cartCtx.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
